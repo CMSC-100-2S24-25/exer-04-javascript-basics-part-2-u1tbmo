@@ -6,8 +6,11 @@
 
 ## Key Takeaways
 
-Work in progress...
+This exercise taught me about exporting and importing local files in JavaScript. It also taught me about node's package manager and using npm to use hosted packages online. This will be essential for dependencies like express that will be needed in the future.
 
 ## References
 
-Work in progress...
+- [npm - uuid](https://www.npmjs.com/package/uuid)
+- [npm - validator](https://www.npmjs.com/package/validator)
+- [Nodejs - File system](https://nodejs.org/api/fs.html)
+- [Medium - Default vs Named Exports](https://medium.com/@ibeanuhillary/default-export-vs-named-export-which-is-better-51faa54a5937)
