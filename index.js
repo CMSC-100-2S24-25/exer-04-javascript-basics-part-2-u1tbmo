@@ -4,7 +4,7 @@ February 25, 2025
 CMSC 100 C1L
 */
 
-import { v7 as uuidv7 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 import validator from "validator";
 import { appendFileSync } from "node:fs";
 
@@ -21,7 +21,7 @@ export function generateUniqueId(firstName, lastName) {
 	}
 
 	// Get the first 8 characters from the uuid
-	const uniqueString = uuidv7().split("-")[0];
+	const uniqueString = uuidv4().split("-")[0];
 
 	// Return the unique id using the pattern:
 	return `${firstName.toLowerCase().trim()[0]}${lastName.toLowerCase().trim()}${uniqueString}`;
