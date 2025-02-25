@@ -19,10 +19,12 @@ const functions = [
 	createMultipleAccounts,
 ];
 
+// Run all functions
 for (const fn of functions) {
 	console.log(`${fn.name}: ${fn() ? "PASS" : "FAIL"}`);
 }
 
+// Check if the id generates the name portion in lowercase and has the correct length
 function uniqueIdGeneratesCorrectly() {
 	const firstName = "Alan";
 	const lastName = "Turing";
@@ -39,6 +41,7 @@ function uniqueIdGeneratesCorrectly() {
 	return result.length === 1 + lastName.length + 8;
 }
 
+// Check if the id is truly unique, despite same information
 function idIsUnique() {
 	const firstName = "Alan";
 	const lastName = "Turing";
@@ -49,14 +52,17 @@ function idIsUnique() {
 	return result1 !== result2;
 }
 
+// Check if the id can't be generated without a valid first name
 function firstNameCannotBeEmpty() {
 	return generateUniqueId("", "Last Name") === null;
 }
 
+// Check if the id can't be generated without a valid last name
 function lastNameCannotBeEmpty() {
 	return generateUniqueId("First Name", "") === null;
 }
 
+// Check if an account can be created and exists in users.txt
 async function accountCanBeCreated() {
 	const firstName = "Alan";
 	const lastName = "Turing";
@@ -68,6 +74,7 @@ async function accountCanBeCreated() {
 		unlinkSync("./users.txt");
 	} catch (error) {}
 
+	// Create the account
 	const result = addAccount(firstName, lastName, email, age);
 	// Check if successful
 	if (!result) {
@@ -98,10 +105,12 @@ async function accountCanBeCreated() {
 	return false;
 }
 
+// Checks if the account is not created when the email is invalid
 function emailMustBeValid() {
 	return !addAccount("First Name", "Second Name", "This is not an email", 18);
 }
 
+// Checks if the account is not created when the age is invalid
 function ageMustBeValid() {
 	// Account should be at least 18
 	for (let i = 0; i < 18; i++) {
@@ -113,6 +122,7 @@ function ageMustBeValid() {
 	return addAccount("First Name", "Last Name", "email@gmail.com", 18);
 }
 
+// Checks if multiple accounts exist in users.txt
 async function createMultipleAccounts() {
 	const accounts = [
 		["Euan Jed", "Tabamo", "testemail@gmail.com", 20],
@@ -125,6 +135,7 @@ async function createMultipleAccounts() {
 		unlinkSync("./users.txt");
 	} catch (error) {}
 
+	// Create all accounts
 	for (const account of accounts) {
 		const result = addAccount(account[0], account[1], account[2], account[3]);
 		// Check if successful
@@ -139,7 +150,6 @@ async function createMultipleAccounts() {
 		return false;
 	}
 
-  
 	// Check if file contains the correct strings
 	let i = 0;
 	for await (const line of fh.readLines()) {
