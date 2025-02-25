@@ -41,7 +41,7 @@ export function addAccount(firstName, lastName, email, age) {
 		firstName.length <= 0 ||
 		lastName.length <= 0 ||
 		email.length <= 0 ||
-		age <= 18
+		age < 18
 	) {
 		return false;
 	}
@@ -56,7 +56,7 @@ export function addAccount(firstName, lastName, email, age) {
 
 	// Save the data into users.txt
 	try {
-		const data = `${firstName},${lastName},${email},${age},${uniqueId}`;
+		const data = `${firstName},${lastName},${email},${age},${uniqueId}\n`;
 		appendFileSync("users.txt", data);
 	} catch (err) {
 		// If an error was encountered, return false
