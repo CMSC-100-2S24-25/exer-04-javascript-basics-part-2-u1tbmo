@@ -8,6 +8,12 @@ import { v7 as uuidv7 } from "uuid";
 import validator from "validator";
 import { appendFileSync } from "node:fs";
 
+/**
+ * Generates a unique id
+ * @param {string} firstName the first name of the user
+ * @param {string} lastName the last name of the user
+ * @returns {string | null} a unique id or null if the first name or last name is invalid
+ */
 function generateUniqueId(firstName, lastName) {
 	// Check string lengths
 	if (firstName.length <= 0 || lastName.length <= 0) {
@@ -21,6 +27,14 @@ function generateUniqueId(firstName, lastName) {
 	return `${firstName.toLowerCase().trim()[0]}${lastName.toLowerCase().trim()}${uniqueString}`;
 }
 
+/**
+ * Creates and stores the account in users.txt
+ * @param {string} firstName the first name of the user
+ * @param {string} lastName the last name of the user
+ * @param {string} email the email of the account
+ * @param {number} age the age of the user in years
+ * @returns {boolean} if the account was successfully added or not
+ */
 function addAccount(firstName, lastName, email, age) {
 	// Check string lengths and value of age
 	if (
