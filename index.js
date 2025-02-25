@@ -15,6 +15,11 @@ import { appendFileSync } from "node:fs";
  * @returns {string | null} a unique id or null if the first name or last name is invalid
  */
 export function generateUniqueId(firstName, lastName) {
+	// Check for null or undefined parameters
+	if (firstName == null || lastName == null) {
+		return null;
+	}
+
 	// Check string lengths
 	if (firstName.length <= 0 || lastName.length <= 0) {
 		return null;
@@ -36,6 +41,11 @@ export function generateUniqueId(firstName, lastName) {
  * @returns {boolean} if the account was successfully added or not
  */
 export function addAccount(firstName, lastName, email, age) {
+	// Check for null/undefined parameters
+	if (firstName == null || lastName == null || email == null || age == null) {
+		return false;
+	}
+
 	// Check string lengths and value of age
 	if (
 		firstName.length <= 0 ||
