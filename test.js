@@ -82,8 +82,10 @@ async function accountCanBeCreated() {
 	}
 
 	// Check if file exists
-	const fh = await open("./users.txt");
-	if (fh == null) {
+	let fh;
+	try {
+		fh = await open("./users.txt");
+	} catch (error) {
 		return false;
 	}
 
@@ -145,8 +147,10 @@ async function createMultipleAccounts() {
 	}
 
 	// Check if file exists
-	const fh = await open("./users.txt");
-	if (fh == null) {
+	let fh;
+	try {
+		fh = await open("./users.txt");
+	} catch (error) {
 		return false;
 	}
 
