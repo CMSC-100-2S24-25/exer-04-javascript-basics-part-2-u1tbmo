@@ -14,7 +14,7 @@ import { appendFileSync } from "node:fs";
  * @param {string} lastName the last name of the user
  * @returns {string | null} a unique id or null if the first name or last name is invalid
  */
-function generateUniqueId(firstName, lastName) {
+export function generateUniqueId(firstName, lastName) {
 	// Check string lengths
 	if (firstName.length <= 0 || lastName.length <= 0) {
 		return null;
@@ -35,7 +35,7 @@ function generateUniqueId(firstName, lastName) {
  * @param {number} age the age of the user in years
  * @returns {boolean} if the account was successfully added or not
  */
-function addAccount(firstName, lastName, email, age) {
+export function addAccount(firstName, lastName, email, age) {
 	// Check string lengths and value of age
 	if (
 		firstName.length <= 0 ||
