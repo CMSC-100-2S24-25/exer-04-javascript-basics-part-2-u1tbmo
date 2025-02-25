@@ -7,6 +7,7 @@ CMSC 100 C1L
 import { v7 as uuidv7 } from "uuid";
 
 function generateUniqueId(firstName, lastName) {
+	// Check string lengths
 	if (firstName.length <= 0 || lastName.length <= 0) {
 		return null;
 	}
